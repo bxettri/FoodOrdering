@@ -7,6 +7,7 @@ import json
 
 connect(db='db_survey')
 
+
 class User(Document):
     full_name = StringField(max_length=200, required=True)
     dob = DateField()
@@ -18,11 +19,11 @@ class User(Document):
 
     def json(self):
         user_dict = {
-            "full_name" : self.full_name,
-            "gender" : self.gender,
-            "dob" : self.dob,
-            "email" : self.email,
-            "profile_image" : self.profile_image
+            "full_name": self.full_name,
+            "gender": self.gender,
+            "dob": self.dob,
+            "email": self.email,
+            "profile_image": self.profile_image
         }
         return json.dumps(user_dict)
 
@@ -32,16 +33,18 @@ class User(Document):
         ]
     }
 
+
 class Questions(EmbeddedDocument):
     questions = StringField()
     options = ListField(StringField())
 
     def json(self):
         question_dict = {
-            "questions" : self.questions,
-            "options" : self.options
+            "questions": self.questions,
+            "options": self.options
         }
         return json.dumps(question_dict)
+
 
 class Survey(Document):
     title = StringField(max_length=200, required=True)
@@ -50,15 +53,16 @@ class Survey(Document):
     end_date = DateTimeField(required=True)
     user = ReferenceField(User)
     questions = ListField(EmbeddedDocumentField(Questions))
+
     # options = ListField(EmbeddedDocumentField(Questions.options))
 
     def json(self):
         survey_dict = {
-            "title" : self.title,
-            "description" : self.description,
-            "start_date" : self.start_date,
-            "end_date" : self.end_date,
-            "questions" : self.questions
+            "title": self.title,
+            "description": self.description,
+            "start_date": self.start_date,
+            "end_date": self.end_date,
+            "questions": self.questions
         }
         return json.dumps(survey_dict)
 
@@ -81,21 +85,22 @@ class Response(Document):
 
     def json(self):
         response_dict = {
-            "respondent_email" : self.repondent_email,
+            "respondent_email": self.repondent_email,
             "respond_datetime": self.respond_datetime,
-            "question" : self.question,
-            "answer" : self.answer
+            "question": self.question,
+            "answer": self.answer
         }
         return json.dumps(response_dict)
 
-    meta  = {'allow_inheritance': True}
+    meta = {'allow_inheritance': True}
+
 
 class singleResponse(Response):
     answer = StringField()
 
+
 class multipleResponse(Response):
     answer = ListField()
-
 
 
 print('Done DB')

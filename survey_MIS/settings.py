@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework_mongoengine',
-    'survey'
+    'rest_framework_mongoengine'
 ]
 
 MIDDLEWARE = [
@@ -89,17 +88,6 @@ DATABASES = {
         'ENGINE':''
     },
 }
-
-# _MONGODB_USER = 'mongouser'
-# _MONGODB_PASSWD = 'password'
-# _MONGODB_HOST = 'theHost'
-# _MONGODB_NAME = 'db_surveys'
-# _MONGODB_DATABASE_HOST = \
-#     'mongodb://%s:%s@%s/%s' \
-#     % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
-#
-# mongoengine.connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
