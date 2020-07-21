@@ -1,5 +1,3 @@
-from django.db import models
-
 # Create your models here.
 from mongoengine import *
 from datetime import datetime
@@ -13,6 +11,7 @@ class User(Document):
     dob = DateField()
     gender = StringField(max_length=20, required=True)
     email = EmailField(max_length=100, required=True, unique=True)
+    username = StringField(required=True, max_length=25)
     password = StringField(required=True)
     profile_image = StringField()
     date_registered = DateTimeField(default=datetime.utcnow)
@@ -23,6 +22,7 @@ class User(Document):
             "gender": self.gender,
             "dob": self.dob,
             "email": self.email,
+            "username": self.username,
             "profile_image": self.profile_image
         }
         return json.dumps(user_dict)

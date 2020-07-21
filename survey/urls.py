@@ -4,6 +4,6 @@ from .views import *
 
 app_name = 'survey'
 urlpatterns = [
-    path("", IndexView.as_view()),  # OR path('', views.index, name='index'),
-    path("signup/", SignupView.as_view()),
+    path('', views.index, name='index'),
+    path('signup/', views.signup, name='signup'),
 ]
