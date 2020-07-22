@@ -29,7 +29,7 @@ class User(Document):
 
     meta = {
         'indexes': [
-            'email', 'full_name', 'gender', 'dob'
+            'email', 'full_name', 'username', 'gender', 'dob'
         ]
     }
 
@@ -114,3 +114,8 @@ print('Done DB')
 #     )
 #
 # User.save()
+
+# if User.objects.get(username='amait'):
+#     print('I exists')
+# else:
+#     print("I don't exists")
