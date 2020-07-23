@@ -1,128 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+{% load static %}
 <head>
-	<title>Signup Page</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-	body {
-	  font-family: "Lato", sans-serif;
-	}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-	.sidenav {
-	  height: 100%;
-	  width: 0;
-	  position: fixed;
-	  z-index: 1;
-	  top: 0;
-	  left: 0;
-	  background-color: #111;
-	  overflow-x: hidden;
-	  transition: 0.5s;
-	  padding-top: 60px;
-	}
+  <title>SB Admin 2 - Register</title>
 
-	.sidenav a {
-	  padding: 8px 8px 8px 32px;
-	  text-decoration: none;
-	  font-size: 25px;
-	  color: #818181;
-	  display: block;
-	  transition: 0.3s;
-	}
+  <!-- Custom fonts for this template-->
+  <link href="{%  static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-	.sidenav a:hover {
-	  color: #f1f1f1;
-	}
+  <!-- Custom styles for this template-->
+  <link href="{%  static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
 
-	#main {
-  		transition: margin-left .5s;
-  		padding: 16px;
-	}
-
-	.sidenav .closebtn {
-	  position: absolute;
-	  top: 0;
-	  right: 25px;
-	  font-size: 36px;
-	  margin-left: 50px;
-	}
-
-	@media screen and (max-height: 450px) {
-	  .sidenav {padding-top: 15px;}
-	  .sidenav a {font-size: 18px;}
-	}
-	</style>
 </head>
-<body>
-<div id="mySidenav" class="sidenav">
-  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  	<a href="/">Home</a>
-  	<a href="#">About</a>
-  	<a href="#">Services</a>
-  	<a href="#">Clients</a>
-  	<a href="#">Contact</a>
-</div>
 
-<div id="main">
+<body class="bg-gradient-primary">
 
-		<h3 id="btnMenu"><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>Menu</h3>
+  <div class="container">
 
-	<div id="formSignup" class="float" align="center">
-		<form method="post" action="/signup/" class="form-group">
-			{% csrf_token %}
-			<h2>Signup</h2>
-				<label>Full Name</label>
-				<input type="text" placeholder="Enter your fullname" name="fullname" required/>
-			<br>
-				<label>Date of birth</label>
-				<input type="date" placeholder="Enter your date of birth" name="dob"/>
-			<br>
-				<label>Gender</label>
-				<input type="text" placeholder="Enter your gender" name="gender" required/>
-			<br>
-				<label>Email</label>
-				<input type="email" placeholder="Enter your email" name="email" required/>
-			<br>
-				<label>Username</label>
-				<input type="text" placeholder="Enter your username" name="username" required/>
-			<br>
-				<label>Password</label>
-				<input type="password" placeholder="Enter your password" name="password" required/>
-			<br>
-			<br>
-				<label>Password</label>
-				<input type="password" placeholder="Confirm your password" name="confirmPassword" required/>
-			<br>
-				{% for message in messages %}
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+              </div>
+              <form method="post" action="/signup/" class="user">
+                {% csrf_token %}
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control " name="fullname" placeholder="Full Name">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" name="username" placeholder="Username">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control" name="dob" placeholder="Date of Birth" onfocus="(this.type='date')"/>
+                </div>
+                     <div class="col-sm-6">
+                     
+                        <select name="gender" class="form-control"/>
+                          <option value="None" selected>Gender</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Others">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" placeholder="Email Address">
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control" name="rPassword" placeholder="Repeat Password">
+                  </div>
+                </div>
+                {% for message in messages %}
 				<strong class="text-danger"> {{message}}</strong>
 				{% endfor %}
-			<br>
-				<button class="btn btn-primary btn-lg" name="btnSignup" type="submit">Signup</button>
-			<br>
-			<span>Already have an account? <a href="/">Login</a></span><br>
-		</form>
-	</div>
-</div>
-<br>
-<br>
-<br>
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                  Register Account
+                </button>
+              </form>
+              <hr>
+              <div class="text-center">
+                <a class="small" href="forgot-password.html">Forgot Password?</a>
+              </div>
+              <div class="text-center">
+                <a class="small" href="/login">Already have an account? Login!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-  document.getElementById("btnMenu").style.display = "none";
-}
+ <!-- Bootstrap core JavaScript-->
+  <script src="{%  static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{%  static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-  document.getElementById("btnMenu").style.display = "block";
-}
-</script>
+  <!-- Core plugin JavaScript-->
+  <script src="{%  static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{%  static 'js/sb-admin-2.min.js' %}"></script>
+
 </body>
+
 </html>

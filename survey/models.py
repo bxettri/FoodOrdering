@@ -11,7 +11,7 @@ class User(Document):
     dob = DateField()
     gender = StringField(max_length=20, required=True)
     email = EmailField(max_length=100, required=True, unique=True)
-    username = StringField(required=True, max_length=25)
+    username = StringField(required=True, unique=True, max_length=25)
     password = StringField(required=True)
     profile_image = StringField()
     date_registered = DateTimeField(default=datetime.utcnow)

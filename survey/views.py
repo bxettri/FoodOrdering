@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import User
-from django.contrib.auth.models import auth
 
 
 # Create your views here.
@@ -38,26 +37,31 @@ def signup(request):
         email = request.POST['email']
         username = request.POST['username']
         password = request.POST['password']
-        confirm_pass = request.POST['confirmPassword']
+        confirm_pass = request.POST['rPassword']
 
         if password == confirm_pass:
-            for user in User.objects:
-                if user.username == username:
-                    chk_user = username
-                else:
-                    chk_user = None
-                if user.email == email:
-                    chk_email = email
-                else:
-                    chk_email = None
+            try:
+                chk_user = User.objects.get(username=username)
+            except User.DoesNotExist:
+                chk_user = None
+
+            try:
+                chk_email = User.objects.get(email=email)
+            except User.DoesNotExist:
+                chk_email = None
 
             if chk_email is None:
                 if chk_user is None:
-                    user = User(full_name=fullname, dob=dob, gender=gender, email=email, username=username,
-                                password=password)
-                    user.save()
-                    print('User registered successfully')
-                    return redirect('/')
+                    if gender == "None":
+                        messages.info(request, 'Please select your gender')
+                        return redirect('/signup')
+
+                    else:
+                        user = User(full_name=fullname, dob=dob, gender=gender, email=email, username=username,
+                                    password=password)
+                        user.save()
+                        print('User registered successfully')
+                        return redirect('/')
 
                 else:
                     messages.info(request, 'Username already exists')
