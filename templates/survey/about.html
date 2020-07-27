@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load  static %} 
+{% load static %}
 <head>
 
   <meta charset="utf-8">
@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Login</title>
+  <title>SB Admin 2 - Register</title>
 
   <!-- Custom fonts for this template-->
   <link href="{%  static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -21,7 +21,9 @@
 </head>
 
 <body class="bg-gradient-primary">
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -30,83 +32,61 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
        <li class="nav-item active">
         <a class="nav-link" href="/about">About us</a>
       </li>
- 
+        
     </ul>
     <div>
-  
+    <col>
+      {% comment %} <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button> {% endcomment %}
+     <a class="btn btn-outline-success my-2 my-sm-0" href="/login" role="button">Login</a>
+      </col>
       <col>
      <a class="btn btn-outline-primary my-2 my-sm-0" href="/signup" role="button">Sign up</a>
       </col>
     </div>
   </div>
 </nav>
-
-
-  <div class="container">
-
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
-
-      <div class="col-xl-10 col-lg-12 col-md-9">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-              <div class="col-lg-6">
-                <div class="p-5">
-                  <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                  </div>
-                  <form class="user">
-                    <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+<br/>
+<div class="just mb-4">
+ <section class="aboutus section_gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d_flex align-items-center mb-2">
+                        <div class="about_content ">
+                            <h1 class="title text-white">About Us > Our History</h1>
+                            <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                            <a href="#" class="btn btn-outline-success">Know more</a>
+                        </div>
                     </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                    <div class="col-md-6 mb-2">
+                        <img class="img-fluid" src="../staticfiles/img/c1.jpg" alt="img">
                     </div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
-                      </div>
-                    </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
-                      Login
-                    </a>
-                    <hr>
-                    <a href="index.html" class="btn btn-google btn-user btn-block">
-                      <i class="fab fa-google fa-fw"></i> Login with Google
-                    </a>
-                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                      <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                    </a>
-                  </form>
-                  <hr>
-                  <div class="text-center">
-                    <a class="small" href="forgot-password.html">Forgot Password?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="/signup">Create an Account!</a>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
+        </section><br/>
+			   <section class="aboutus section_gap">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 mb-2">
+                        <img class="img-fluid" src="../staticfiles/img/c2.jpg" alt="img">
+                    </div>
+					 <div class="col-md-6 d_flex align-items-center mb-2">
+                        <div class="about_content ">
+                            <h1 class="title text-white">About Us > Mission & Vision</h1>
+                            <p class="text-white">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                            <a href="#" class="btn btn-outline-success">Know more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
+   
  <!-- Footer -->
 <footer class="page-footer  bg-light font-small blue pt-4">
 
@@ -190,8 +170,7 @@
 
 </footer>
 <!-- Footer -->
-
-  <!-- Bootstrap core JavaScript-->
+ <!-- Bootstrap core JavaScript-->
   <script src="{%  static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{%  static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
@@ -204,3 +183,4 @@
 </body>
 
 </html>
+

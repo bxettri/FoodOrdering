@@ -11,6 +11,12 @@ from django.contrib.auth.models import auth
 def index(request):
     return render(request, 'survey/index.html')
 
+def home(request):
+    return render(request, 'survey/home.html')
+
+def about(request):
+    return render(request, 'survey/about.html')
+
 
 def login(request):
     if request.method == 'POST':
