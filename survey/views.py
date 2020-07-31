@@ -11,6 +11,14 @@ def index(request):
     return render(request, 'survey/index.html')
 
 
+def dashboard(request):
+    return render(request, 'survey/dashboard.html')
+
+
+def your_survey(request):
+    return render(request, 'survey/your_survey.html')
+
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -18,13 +26,14 @@ def login(request):
 
         try:
             user = User.objects.get(username=username, password=password)
-        except User.DoesNotExist:
+        except:
             user = None
         if user is not None:
-            return redirect("/")
+            return redirect("/dashboard")
+
         else:
             messages.info(request, 'invalid credentials')
-        return redirect('/login')
+            return redirect('/login')
     else:
         return render(request, 'survey/login.html')
 
